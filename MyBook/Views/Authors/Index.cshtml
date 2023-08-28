@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AuthorVM>
+
+@{
+    ViewData["Title"] = "Author";
+}
+@section Style{
+    <partial name="_DataTablesCss" />
+}
+<div class="m-5">
+    <div class="card">
+        <div class="card-header d-flex  justify-content-between">
+            <h5 class="card-title text-muted">
+                <svg width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-v-481ddfc4="">
+                    <path d="M5.288 2.5a.476.476 0 0 0-.45.321l-.472 1.371H2.803a.477.477 0 0 0-.288.856l1.267.96-.43 1.374a.476.476 0 0 0 .74.523l1.196-.895 1.195.895a.476.476 0 0 0 .74-.523l-.428-1.373 1.267-.961a.477.477 0 0 0-.289-.856H6.21l-.472-1.37a.476.476 0 0 0-.45-.322Zm4.962 2a.75.75 0 1 0 0 1.5h10.5a.75.75 0 1 0 0-1.5h-10.5ZM5.288 9.251a.476.476 0 0 0-.45.32l-.47 1.371H2.802a.477.477 0 0 0-.287.856l1.266.96-.428 1.374a.476.476 0 0 0 .739.523l1.195-.895 1.196.895a.476.476 0 0 0 .74-.523l-.43-1.373 1.268-.961a.474.474 0 0 0 .162-.531.475.475 0 0 0-.45-.325H6.208l-.47-1.37a.475.475 0 0 0-.45-.321Zm4.962 1.999a.751.751 0 1 0 0 1.5h10.5a.751.751 0 1 0 0-1.5h-10.5ZM5.288 16a.476.476 0 0 0-.45.321l-.472 1.371H2.803a.477.477 0 0 0-.288.856l1.267.96-.43 1.374a.476.476 0 0 0 .74.523l1.196-.895 1.195.895a.476.476 0 0 0 .74-.523l-.428-1.373 1.267-.961a.477.477 0 0 0-.289-.856H6.21l-.472-1.37a.476.476 0 0 0-.45-.322Zm4.962 2a.751.751 0 1 0 0 1.5h10.5a.751.751 0 1 0 0-1.5h-10.5Z">
+                    </path>
+                </svg>
+                Authors
+            </h5>
+            <span>
+                <a href="Javascript:;" class="btn btn-primary btn-sm js-render-modal"
+                   data-title="Add Author" data-url="/Authors/Create">
+                    Add Author
+                </a>
+            </span>
+        </div>
+        <div class="card-body mt-2">
+            <table class="table table-hover text-center table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Created On</th>
+                        <th>Last Updated On</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var author in Model)
+                    {
+                        <partial name="_ModalRow" model="@author" />
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@Html.AntiForgeryToken()
+@section CustomScripts{
+    <partial name="_DataTablesJs" />
+}
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

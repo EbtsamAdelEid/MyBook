@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewData["Title"] - MyBook</title>
+    <link rel="icon" href="~/icons8-book-cute-outline-32.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/lib/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="~/lib/animate.css/animate.min.css" />
+    <link rel="canonical" href="Https://preview.keenthemes.com/ceres-html-pro">
+
+        @await RenderSectionAsync("Style", required: false)
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyBook.styles.css" asp-append-version="true" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed page-loading">
+    
+    <div class="page-loader">
+        <span class="spinner-border text-bg-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </span>
+    </div>
+
+    <partial name="_Nav" />
+    <div id="layoutSidenav">
+        <partial name="_SideBar" />
+        @*Render Body*@
+        <div id="layoutSidenav_content">
+            <main role="main">
+                <div class="container-fluid px-4">
+                    @RenderBody()
+                </div>
+            </main>
+            <partial name="_Footer" />
+        </div>
+
+        <partial name="_FormModal"/>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/bootbox.js/bootbox.min.js"></script>
+        <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+        @await RenderSectionAsync("CustomScripts", required: false)
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+
+    </div>
+</body>
+</html>
